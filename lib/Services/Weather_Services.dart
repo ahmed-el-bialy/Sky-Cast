@@ -1,0 +1,41 @@
+import 'package:dio/dio.dart';
+import 'package:sky_cast/Models/City_Weather_Model.dart';
+
+class WeatherServices {
+  Dio dio = Dio();
+  final String baseUrl = "https://api.weatherapi.com/v1";
+  final String apiKey ="2d2ac7c29a6344ea881181521260404";
+  Future<CityWeatherModel?> getWeather(String cityName) async {
+    try {
+      Response response = await dio.get(
+        "$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=1",
+      );
+
+      Map<String, dynamic> jsonData = response.data;
+
+      var location = jsonData["location"];
+      var current = jsonData["current"];
+      var condition = current["condition"];
+      var forecast = jsonData["forecast"]["forecastday"][0]["day"];
+
+      CityWeatherModel cityDetails = CityWeatherModel(
+        requestTime: DateTime.parse(current["last_updated"]),
+
+        name: location["name"],
+
+        weatherImagePath: "https:${condition["icon"]}",
+
+        temperature: current["temp_c"],
+
+        status: condition["text"],
+
+        maxTemp: forecast["maxtemp_c"],
+
+        minTemp: forecast["mintemp_c"],
+      );
+      return cityDetails;
+    } catch (e) {
+      return null;
+    }
+  }
+}
