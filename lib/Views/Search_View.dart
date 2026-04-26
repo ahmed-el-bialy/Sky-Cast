@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sky_cast/Cubits/get%20Weather%20Cubit/get_Weather_Cubit.dart';
-import 'package:sky_cast/Cubits/get%20Weather%20Cubit/get_Weather_States.dart';
 
-import '../Widgets/Color Helper.dart';
-import '../main.dart';
+import '../helper/Text_Color_helper.dart';
+import '../helper/Theme_helper.dart';
 
 class SearchView extends StatelessWidget {
   SearchView({super.key});

@@ -5,8 +5,9 @@ import 'package:sky_cast/Cubits/get%20Weather%20Cubit/get_Weather_States.dart';
 import 'package:sky_cast/Views/Search_View.dart';
 import 'package:sky_cast/Widgets/No_Weather_Search_Widget.dart';
 import 'package:sky_cast/Widgets/Weather_Card_Widget.dart';
-import '../Widgets/Color Helper.dart';
-import '../main.dart';
+
+import '../helper/Text_Color_helper.dart';
+import '../helper/Theme_helper.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

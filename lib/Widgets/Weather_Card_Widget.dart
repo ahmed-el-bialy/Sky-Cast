@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../Cubits/get Weather Cubit/get_Weather_Cubit.dart';
-import '../main.dart';
-import 'Color Helper.dart';
+import '../helper/Theme_helper.dart';
+import '../helper/Text_Color_helper.dart';
 
 class WeatherCardWidget extends StatelessWidget {
   const WeatherCardWidget({super.key});
@@ -21,7 +21,7 @@ class WeatherCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.4),
+                  color: Colors.black.withValues(alpha: 0.4),
                   spreadRadius: 2,
                   blurRadius: 15,
                   offset: const Offset(0, 8),
