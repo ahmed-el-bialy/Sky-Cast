@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../Cubits/get Weather Cubit/get_Weather_Cubit.dart';
 import '../helper/Theme_helper.dart';
-import '../helper/Text_Color_helper.dart';
+import 'Additional_Data.dart';
+import 'City_part.dart';
+import 'Date_Part.dart';
+import 'Image_part.dart';
+import 'Status_part.dart';
+import 'Temp_Data.dart';
 
 class WeatherCardWidget extends StatelessWidget {
   const WeatherCardWidget({super.key});
@@ -14,6 +18,7 @@ class WeatherCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: MediaQuery.sizeOf(context).height * .08),
           Container(
@@ -43,119 +48,12 @@ class WeatherCardWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: Text(
-                    "Updated at : Today - ${city!.requestTime.hour}:${city.requestTime.minute}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: getAdaptiveContentColor(
-                        getThemeColor(city.status),
-                      ),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: Text(
-                    city.name,
-                    style: TextStyle(
-                      fontSize: 45,
-                      fontWeight: FontWeight.w500,
-                      color: getAdaptiveContentColor(
-                        getThemeColor(city.status),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width * .28,
-                    child: Image.network(
-                      city.weatherImagePath,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Text(
-                    "${city.temperature.round()}°",
-                    style: TextStyle(
-                      fontSize: 55,
-                      fontWeight: FontWeight.bold,
-                      color: getAdaptiveContentColor(
-                        getThemeColor(city.status),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(
-                    city.status,
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                      color: getAdaptiveContentColor(
-                        getThemeColor(city.status),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Max Temp : ${city.maxTemp.round()}°",
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w400,
-                              color: getAdaptiveContentColor(
-                                getThemeColor(city.status),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: SizedBox(
-                            height: 20,
-                            child: VerticalDivider(
-                              thickness: 2,
-                              color: getAdaptiveContentColor(
-                                getThemeColor(city.status),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Min Temp : ${city.minTemp.round()}°",
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w400,
-                              color: getAdaptiveContentColor(
-                                getThemeColor(city.status),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                DatePart(city: city),
+                CityPart(city: city),
+                ImagePart(city: city),
+                TempData(city: city),
+                StatusPart(city: city),
+                AdditionalData(city: city),
                 SizedBox(height: 20),
               ],
             ),
