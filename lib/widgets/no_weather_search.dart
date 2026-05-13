@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NoWeatherSearchWidget extends StatelessWidget {
-  const NoWeatherSearchWidget({super.key});
+class NoWeatherSearch extends StatelessWidget {
+  const NoWeatherSearch({super.key});
 
   @override
   Widget build(BuildContext context) {

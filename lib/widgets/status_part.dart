@@ -1,15 +1,10 @@
-
 import 'package:flutter/material.dart';
-
-import '../Models/City_Weather_Model.dart';
-import '../helper/Text_Color_helper.dart';
-import '../helper/Theme_helper.dart';
+import '../helper/text_color_helper.dart';
+import '../helper/theme_helper.dart';
+import '../models/city_weather_model.dart';
 
 class StatusPart extends StatelessWidget {
-  const StatusPart({
-    super.key,
-    required this.city,
-  });
+  const StatusPart({super.key, required this.city});
 
   final CityWeatherModel? city;
 
@@ -22,9 +17,7 @@ class StatusPart extends StatelessWidget {
         style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.w400,
-          color: getAdaptiveContentColor(
-            getThemeColor(city!.status),
-          ),
+          color: getAdaptiveContentColor(getThemeColor(city!.status)),
         ),
       ),
     );

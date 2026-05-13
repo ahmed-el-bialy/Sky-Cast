@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sky_cast/Cubits/get%20Weather%20Cubit/get_Weather_Cubit.dart';
 
-import '../helper/Text_Color_helper.dart';
-import '../helper/Theme_helper.dart';
+import '../cubits/get_weather_cubit/get_weather_cubit.dart';
+import '../helper/text_color_helper.dart';
+import '../helper/theme_helper.dart';
 
 class SearchView extends StatelessWidget {
   SearchView({super.key});
@@ -12,7 +12,7 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   var city = BlocProvider.of<GetWeatherCubit>(context).WeatherModel;
+   var city = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(

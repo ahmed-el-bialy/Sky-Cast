@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:sky_cast/Models/City_Weather_Model.dart';
+import 'package:sky_cast/models/city_weather_model.dart';
 
 class WeatherServices {
   Dio dio = Dio();

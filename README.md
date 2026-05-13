@@ -298,7 +298,7 @@ cd Sky-Cast
 # 2. Install dependencies
 flutter pub get
 
-# 3. Set your WeatherAPI key in lib/Services/Weather_Services.dart
+# 3. Set your WeatherAPI key in lib/services/weather_services.dart
 #    final String apiKey = "YOUR_API_KEY_HERE";
 
 # 4. Run the app

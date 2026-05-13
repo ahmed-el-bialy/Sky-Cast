@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../Models/City_Weather_Model.dart';
-import '../helper/Text_Color_helper.dart';
-import '../helper/Theme_helper.dart';
+import '../models/city_weather_model.dart';
+import '../helper/text_color_helper.dart';
+import '../helper/theme_helper.dart';
 
 class DatePart extends StatelessWidget {
   const DatePart({super.key, required this.city});
