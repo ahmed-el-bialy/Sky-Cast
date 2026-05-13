@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:sky_cast/models/city_weather_model.dart';
 
+import '../helper/constants.dart';
+
 class WeatherServices {
   Dio dio = Dio();
-  final String baseUrl = "https://api.weatherapi.com/v1";
-  final String apiKey ="2d2ac7c29a6344ea881181521260404";
+
   Future<CityWeatherModel?> getWeather(String cityName) async {
     try {
       Response response = await dio.get(
