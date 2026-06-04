@@ -1,42 +1,50 @@
 import 'package:dio/dio.dart';
+import 'package:sky_cast/models/city_suggestion_model.dart';
 import 'package:sky_cast/models/city_weather_model.dart';
 
 import '../helper/constants.dart';
 
 class WeatherServices {
-  Dio dio = Dio();
+  final Dio dio = Dio();
 
-  Future<CityWeatherModel?> getWeather(String cityName) async {
+  Future<CityWeatherModel> getWeather(String cityName) async {
     try {
       Response response = await dio.get(
         "$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=1",
       );
 
-      Map<String, dynamic> jsonData = response.data;
-
-      var location = jsonData["location"];
-      var current = jsonData["current"];
-      var condition = current["condition"];
-      var forecast = jsonData["forecast"]["forecastday"][0]["day"];
-
-      CityWeatherModel cityDetails = CityWeatherModel(
-        requestTime: DateTime.parse(current["last_updated"]),
-
-        name: location["name"],
-
-        weatherImagePath: "https:${condition["icon"]}",
-
-        temperature: current["temp_c"],
-
-        status: condition["text"],
-
-        maxTemp: forecast["maxtemp_c"],
-
-        minTemp: forecast["mintemp_c"],
-      );
-      return cityDetails;
+      return CityWeatherModel.fromJson(response.data);
+    } on DioException catch (e) {
+      final errorMessage =
+          e.response?.data['error']['message'] ??
+          "Opps, there was an error, try again later";
+      throw Exception(errorMessage);
     } catch (e) {
-      return null;
+      throw Exception("Something went wrong");
+    }
+  }
+
+  Future<List<CitySuggestionModel>> getAutocompleteCities(
+    String textInput,
+  ) async {
+    if (textInput.trim().isEmpty) {
+      return [];
+    }
+
+    try {
+      Response response = await dio.get(
+        "$baseUrl/search.json?key=$apiKey&q=$textInput",
+      );
+
+      List<dynamic> jsonData = response.data;
+
+      List<CitySuggestionModel> suggestionsList = jsonData
+          .map((cityMap) => CitySuggestionModel.fromJson(cityMap))
+          .toList();
+
+      return suggestionsList;
+    } catch (e) {
+      return [];
     }
   }
 }

@@ -6,7 +6,7 @@ import 'cubits/get_weather_cubit/get_weather_states.dart';
 import 'helper/theme_helper.dart';
 
 void main() {
-  runApp(SkyCast());
+  runApp(const SkyCast());
 }
 
 class SkyCast extends StatelessWidget {
@@ -16,18 +16,20 @@ class SkyCast extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
-      child: BlocBuilder<GetWeatherCubit, WeatherState>(
+      child: BlocBuilder<GetWeatherCubit, GetWeatherState>(
         builder: (context, state) {
+          // سحبنا الموديل هنا في متغير سريع برضه عشان الكود يكون أنظف وقابل للقراءة
+          final weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+
           return MaterialApp(
             theme: ThemeData(
               useMaterial3: true,
               primarySwatch: getThemeColor(
-                BlocProvider.of<GetWeatherCubit>(context).weatherModel?.status,
+                weatherModel?.current.condition.text, // المسار الجديد لحالة الطقس لتغيير ثيم التطبيق بالكامل
               ),
             ),
-
             debugShowCheckedModeBanner: false,
-            home: MainView(),
+            home: const MainView(),
           );
         },
       ),

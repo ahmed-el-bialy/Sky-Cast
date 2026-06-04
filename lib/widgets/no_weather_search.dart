@@ -7,20 +7,30 @@ class NoWeatherSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Icon(Icons.search, size: 70),
-            ),
-            Text(
+            const Icon(Icons.search, size: 90, color: Colors.blueGrey),
+            const SizedBox(height: 15),
+
+            const Text(
               "Discover the weather in your city!",
               style: TextStyle(
-                fontSize: 42,
-                fontFamily: "BilboSwashCaps",
-                fontWeight: FontWeight.w600,
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+
+            Text(
+              "Tap the search icon at the top right to start exploring.",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+                fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.center,
             ),

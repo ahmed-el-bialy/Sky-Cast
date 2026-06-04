@@ -1,9 +1,9 @@
-class WeatherState {}
+class GetWeatherState {}
 
-class InitialState extends WeatherState {}
+class InitialState extends GetWeatherState {}
 
-class SuccessfulWeatherState extends WeatherState {}
+class SuccessfulWeatherState extends GetWeatherState {}
 
-class FailedWeatherState extends WeatherState {
+class FailedWeatherState extends GetWeatherState {
   FailedWeatherState(String errorMassage);
 }

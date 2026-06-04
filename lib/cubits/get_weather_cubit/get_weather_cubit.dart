@@ -3,14 +3,14 @@ import 'package:sky_cast/models/city_weather_model.dart';
 import '../../services/weather_services.dart';
 import 'get_weather_states.dart';
 
-class GetWeatherCubit extends Cubit<WeatherState> {
+class GetWeatherCubit extends Cubit<GetWeatherState> {
   GetWeatherCubit() : super(InitialState());
 
    CityWeatherModel? weatherModel;
 
   Future<void> getWeather(String value) async {
     try {
-      weatherModel = (await WeatherServices().getWeather(value))!;
+      weatherModel = (await WeatherServices().getWeather(value));
       emit(SuccessfulWeatherState());
     } catch (e) {
       emit(FailedWeatherState(e.toString()));
