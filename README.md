@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>🌤️ Sky-Cast</h1>
+<h1>☁️ SkyCast</h1>
 
 <p>
   <a href="https://flutter.dev">
