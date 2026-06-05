@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>☁️ SkyCast</h1>
+<h1>🌤️ Sky-Cast</h1>
 
 <p>
   <a href="https://flutter.dev">
@@ -38,7 +38,7 @@
 
 ### 📱 Watch Sky-Cast in Action
 
-**[▶️ Watch on YouTube Shorts](https://youtube.com/shorts/GHmA_JNi-kw)**
+**[▶️ Watch on YouTube Shorts](https://youtube.com/shorts/u5JjIphdrAM?si=h44HWlZMZki8L_GM)**
 
 *A quick showcase of the app's UI, dynamic themes, and smooth search experience.*
 
@@ -116,10 +116,10 @@
 
 ### ⛈️ Thunder Theme
 
-| 🏠 Main Screen | 🔍 Initial Search |
-|:-------------:|:----------------:|
-| <img src="screenshots/thunder_main_weather.png" width="200"> | <img src="screenshots/thunder_initial_search.png" width="200"> |
-| Deep purple storm theme | Dark search interface |
+| 🏠 Main Screen | 🔍 Initial Search | 📋 Search Results |
+|:-------------:|:----------------:|:----------------:|
+| <img src="screenshots/thunder_main_weather.png" width="200"> | <img src="screenshots/thunder_initial_search.png" width="200"> | <img src="screenshots/thunder_results_search.png" width="200"> |
+| Deep purple storm theme | Dark search interface | Thunder search results |
 
 ### ☁️ Cloudy Theme
 
