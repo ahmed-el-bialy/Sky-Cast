@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sky_cast/models/city_suggestion_model.dart';
 import 'package:sky_cast/services/weather_services.dart';
 import 'package:sky_cast/widgets/city_suggestion_card.dart';
@@ -35,7 +34,8 @@ class CustomSearchDelegate extends SearchDelegate {
     final viewContentColor = getAdaptiveContentColor(currentThemeColor);
     final viewHintColor = getAdaptiveHintColor(currentThemeColor);
 
-    return theme.copyWith(
+    return theme.copyWith
+      (
       appBarTheme: AppBarTheme(
         backgroundColor: isDefault
             ? const Color(0xFFF4F6F9)
@@ -48,10 +48,10 @@ class CustomSearchDelegate extends SearchDelegate {
           fontWeight: FontWeight.w500,
         ),
       ),
-      // 🎯 الحل هنا: تلوين النص المكتوب بناءً على حالة الثيم عشان ميفضلش أبيض دايماً
+
       textTheme: theme.textTheme.copyWith(
         titleLarge: TextStyle(
-          color: viewContentColor, // ✅ اتعدلت للمتكيف بدل Colors.white
+          color: viewContentColor,
           fontSize: 18,
         ),
       ),
@@ -129,7 +129,7 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     final currentThemeColor = getCurrentThemeColor();
-    final isDefault = currentThemeColor == null;
+    final isDefault = (currentThemeColor == null);
 
     final mainViewContentColor = getAdaptiveContentColor(currentThemeColor);
     final subViewContentColor = isDefault
