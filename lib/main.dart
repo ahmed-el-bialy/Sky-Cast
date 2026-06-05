@@ -18,14 +18,15 @@ class SkyCast extends StatelessWidget {
       create: (context) => GetWeatherCubit(),
       child: BlocBuilder<GetWeatherCubit, GetWeatherState>(
         builder: (context, state) {
-          // سحبنا الموديل هنا في متغير سريع برضه عشان الكود يكون أنظف وقابل للقراءة
-          final weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+          final weatherModel = BlocProvider.of<GetWeatherCubit>(
+            context,
+          ).weatherModel;
 
           return MaterialApp(
             theme: ThemeData(
               useMaterial3: true,
               primarySwatch: getThemeColor(
-                weatherModel?.current.condition.text, // المسار الجديد لحالة الطقس لتغيير ثيم التطبيق بالكامل
+                weatherModel?.current.condition.text,
               ),
             ),
             debugShowCheckedModeBanner: false,
