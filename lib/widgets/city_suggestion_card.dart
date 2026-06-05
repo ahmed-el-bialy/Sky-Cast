@@ -29,7 +29,6 @@ class CitySuggestionCard extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Container(
-          height: 80,
           decoration: BoxDecoration(
             color: isDefault
                 ? Colors.white

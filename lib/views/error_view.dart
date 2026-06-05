@@ -1,57 +1,49 @@
 import 'package:flutter/material.dart';
 
 class ErrorView extends StatelessWidget {
-  const ErrorView({super.key});
+  final String? condition;
+
+  const ErrorView({super.key, this.condition});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(Icons.cloud_off_outlined, size: 100, color: Colors.blueGrey),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 6.0,
-                vertical: 15,
-              ),
-              child: RichText(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.cloud_off_outlined, size: 140, color: Colors.cyan),
+
+              const SizedBox(height: 32),
+
+              const Text(
+                "Oops! Weather Data Misplaced",
                 textAlign: TextAlign.center,
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "There was an Error, please check",
-                      style: TextStyle(color: Colors.black, fontSize: 28),
-                    ),
-                    TextSpan(
-                      text: " City name",
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 28,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    TextSpan(
-                      text: " or ",
-                      style: TextStyle(color: Colors.black, fontSize: 28),
-                    ),
-                    TextSpan(
-                      text: "Your Wi-fi Connection",
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 28,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
                 ),
               ),
-            ),
+              const SizedBox(height: 16),
+
+              Text(
+                "We had trouble locating the weather info. Please check your spelling and connection.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[600],
+                  height: 1.5,
+                ),
+              ),
+
+              const SizedBox(height: 48),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

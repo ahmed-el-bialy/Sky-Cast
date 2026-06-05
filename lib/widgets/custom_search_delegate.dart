@@ -181,7 +181,7 @@ class CustomSearchDelegate extends SearchDelegate {
             padding: EdgeInsets.symmetric(vertical: 10),
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
+
               itemCount: suggestions.length,
               itemBuilder: (context, index) {
                 return CitySuggestionCard(
