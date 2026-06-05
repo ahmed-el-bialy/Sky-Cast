@@ -86,7 +86,7 @@ class WeatherCard extends StatelessWidget {
                           textColor: contentColor,
                         ),
                         InfoCard(
-                          title: "Wind Speed",
+                          title: "windSpd",
                           value: "${city?.current.windSpeed.toInt() ?? 0} km/h",
                           icon: Icons.air_rounded,
                           iconColor: Colors.tealAccent,
